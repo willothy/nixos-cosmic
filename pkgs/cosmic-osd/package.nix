@@ -39,7 +39,6 @@ rustPlatform.buildRustPackage {
   ];
 
   LIBCLANG_PATH = "${libclang.lib}/lib";
-  env.LIBCLANG_PATH = "${libclang.lib}/lib";
 
   env.POLKIT_AGENT_HELPER_1 = "/run/wrappers/bin/polkit-agent-helper-1";
 
