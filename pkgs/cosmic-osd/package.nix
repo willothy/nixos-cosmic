@@ -1,12 +1,13 @@
-{
-  lib,
-  fetchFromGitHub,
-  rustPlatform,
-  libcosmicAppHook,
-  pkg-config,
-  pulseaudio,
-  udev,
-  nix-update-script,
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, libcosmicAppHook
+, pkg-config
+, pulseaudio
+, pipewire
+, udev
+, nix-update-script
+,
 }:
 
 rustPlatform.buildRustPackage {
@@ -20,7 +21,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-+NwsMCOZeZlPcVVQv3WzRj8vAM8P8qPGsOMaTACVEFQ=";
   };
 
-  
+
   cargoHash = "sha256-YcNvvK+Zf8nSS5YjS5iaoipogstiyBdNY7LhWPsz9xQ=";
 
   nativeBuildInputs = [
@@ -29,6 +30,7 @@ rustPlatform.buildRustPackage {
   ];
   buildInputs = [
     pulseaudio
+    pipewire
     udev
   ];
 

@@ -5,6 +5,7 @@
 , libinput
 , pkg-config
 , pulseaudio
+, pipewire
 , udev
 , nix-update-script
 , openssl
@@ -21,13 +22,13 @@ rustPlatform.buildRustPackage {
     hash = "sha256-ulaz4y/iSUI/MRpUJAG/OYaq1m660qRm7Hb+u1fJlUo=";
   };
 
-  
   cargoHash = "sha256-1YQ7eQ6L6OHvVihUUnZCDWXXtVOyaI1pFN7YD/OBcfo=";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [
     libinput
     pulseaudio
+    pipewire
     udev
     openssl
   ];
