@@ -27,7 +27,6 @@ rustPlatform.buildRustPackage {
   nativeBuildInputs = [
     libcosmicAppHook
     pkg-config
-    libclang
   ];
   buildInputs = [
     pulseaudio
@@ -36,7 +35,7 @@ rustPlatform.buildRustPackage {
     libclang
   ];
 
-  env.LIBCLANG_PATH = "${libclang}/lib";
+  env.LIBCLANG_PATH = "${libclang.lib}/lib";
 
   env.POLKIT_AGENT_HELPER_1 = "/run/wrappers/bin/polkit-agent-helper-1";
 
