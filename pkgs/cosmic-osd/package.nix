@@ -27,12 +27,14 @@ rustPlatform.buildRustPackage {
   nativeBuildInputs = [
     libcosmicAppHook
     pkg-config
+    clang
   ];
   buildInputs = [
     pulseaudio
     pipewire
     udev
-    libclang
+    clang
+    libclang.lib
   ];
 
   env.LIBCLANG_PATH = "${libclang.lib}/lib";
