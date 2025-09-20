@@ -8,6 +8,7 @@
 , udev
 , nix-update-script
 , libclang
+, clang
 }:
 
 rustPlatform.buildRustPackage {
