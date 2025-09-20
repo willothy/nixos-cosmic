@@ -1,20 +1,20 @@
-{
-  lib,
-  fetchFromGitHub,
-  rustPlatform,
-  libcosmicAppHook,
-  dbus,
-  glib,
-  just,
-  libinput,
-  pkg-config,
-  pulseaudio,
-  pipewire,
-  stdenv,
-  udev,
-  util-linux,
-  xkeyboard_config,
-  nix-update-script,
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, libcosmicAppHook
+, dbus
+, glib
+, just
+, libinput
+, pkg-config
+, pipewire
+, pulseaudio
+, stdenv
+, udev
+, util-linux
+, xkeyboard_config
+, nix-update-script
+,
 }:
 
 rustPlatform.buildRustPackage {
@@ -40,9 +40,9 @@ rustPlatform.buildRustPackage {
     dbus
     glib
     libinput
+    pipewire
     pulseaudio
     udev
-    pipewire
   ];
 
   dontUseJustBuild = true;
