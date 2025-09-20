@@ -29,6 +29,7 @@ rustPlatform.buildRustPackage {
     libinput
     pulseaudio
     udev
+    openssl
   ];
 
   env.GEOCLUE_AGENT = "${lib.getLib geoclue2-with-demo-agent}/libexec/geoclue-2.0/demos/agent";
