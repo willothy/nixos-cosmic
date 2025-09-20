@@ -42,6 +42,7 @@ rustPlatform.buildRustPackage {
     libinput
     pulseaudio
     udev
+    pipewire
   ];
 
   dontUseJustBuild = true;
