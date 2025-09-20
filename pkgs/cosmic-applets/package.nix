@@ -9,6 +9,7 @@
   libinput,
   pkg-config,
   pulseaudio,
+  pipewire,
   stdenv,
   udev,
   util-linux,
@@ -27,7 +28,6 @@ rustPlatform.buildRustPackage {
     hash = "sha256-uUcEwa9rGHLzmlutmLl/e38ZqybfYMU0Dhe+FsT5V/E=";
   };
 
-  useFetchCargoVendor = true;
   cargoHash = "sha256-RnkyIlTJMxMGu+EsmZwvSIapSqdng+t8bqMVsDXprlU=";
 
   nativeBuildInputs = [
