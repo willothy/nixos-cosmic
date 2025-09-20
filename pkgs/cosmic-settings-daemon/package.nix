@@ -1,13 +1,13 @@
-{
-  lib,
-  fetchFromGitHub,
-  rustPlatform,
-  geoclue2-with-demo-agent,
-  libinput,
-  pkg-config,
-  pulseaudio,
-  udev,
-  nix-update-script,
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, geoclue2-with-demo-agent
+, libinput
+, pkg-config
+, pulseaudio
+, udev
+, nix-update-script
+, openssl
 }:
 
 rustPlatform.buildRustPackage {
