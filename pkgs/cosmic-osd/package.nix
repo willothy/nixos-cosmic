@@ -27,6 +27,7 @@ rustPlatform.buildRustPackage {
   nativeBuildInputs = [
     libcosmicAppHook
     pkg-config
+    libclang
   ];
   buildInputs = [
     pulseaudio
