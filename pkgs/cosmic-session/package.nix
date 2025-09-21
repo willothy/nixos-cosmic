@@ -39,20 +39,21 @@ rustPlatform.buildRustPackage {
   dontUseJustBuild = true;
   dontUseJustCheck = true;
 
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-    "--set"
-    "cosmic_dconf_profile"
-    "cosmic"
-    "--set"
-    "rootdir"
-    "${(placeholder "out")}/etc"
-  ];
+  justFlags =
+    let
+      out = (placeholder "out");
+    in
+    [
+      "--set"
+      "prefix"
+      out
+      "--set"
+      "cargo-target-dir"
+      "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
+      "--set"
+      "cosmic_dconf_profile"
+      "${out}/etc/share/dconf/profile/cosmic"
+    ];
 
   env.XDP_COSMIC = lib.getExe xdg-desktop-portal-cosmic;
   # use `orca` from PATH (instead of absolute path) if available
