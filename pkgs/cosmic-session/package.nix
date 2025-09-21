@@ -1,13 +1,13 @@
-{
-  lib,
-  fetchFromGitHub,
-  rustPlatform,
-  bash,
-  dbus,
-  just,
-  stdenv,
-  xdg-desktop-portal-cosmic,
-  nix-update-script,
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, bash
+, dbus
+, just
+, stdenv
+, xdg-desktop-portal-cosmic
+, nix-update-script
+,
 }:
 
 rustPlatform.buildRustPackage {
@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-P3xXYd80P+DR1vVE0zZC+v4ARsGhRrG9N9LdP2BEfDA=";
   };
 
-  
+
   cargoHash = "sha256-bo46A7hS1U0cOsa/T4oMTKUTjxVCaGuFdN2qCjVHxhg=";
 
   postPatch = ''
@@ -49,6 +49,9 @@ rustPlatform.buildRustPackage {
     "--set"
     "cosmic_dconf_profile"
     "cosmic"
+    "--set"
+    "rootdir"
+    "${out}"
   ];
 
   env.XDP_COSMIC = lib.getExe xdg-desktop-portal-cosmic;
