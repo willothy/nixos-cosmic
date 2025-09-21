@@ -36,7 +36,7 @@ rustPlatform.buildRustPackage {
     pipewire
     udev
     clang
-    libclang.lib
+    libclang
   ];
 
   preBuild = ''

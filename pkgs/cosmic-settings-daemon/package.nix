@@ -34,7 +34,7 @@ rustPlatform.buildRustPackage {
     udev
     openssl
     clang
-    libclang.lib
+    libclang
   ];
 
   LIBCLANG_PATH = "${libclang.lib}/lib";

@@ -58,7 +58,7 @@ rustPlatform.buildRustPackage {
     pulseaudio
     udev
     clang
-    libclang.lib
+    libclang
   ];
 
   LIBCLANG_PATH = "${libclang.lib}/lib";
