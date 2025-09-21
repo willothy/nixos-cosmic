@@ -1,23 +1,24 @@
-{
-  lib,
-  stdenv,
-  fetchFromGitHub,
-  rustPlatform,
-  libcosmicAppHook,
-  cmake,
-  cosmic-randr,
-  expat,
-  fontconfig,
-  freetype,
-  just,
-  libinput,
-  pipewire,
-  pkg-config,
-  pulseaudio,
-  udev,
-  util-linux,
-  xkeyboard_config,
-  nix-update-script,
+{ lib
+, stdenv
+, fetchFromGitHub
+, rustPlatform
+, libcosmicAppHook
+, cmake
+, cosmic-randr
+, expat
+, fontconfig
+, freetype
+, just
+, libinput
+, pipewire
+, pkg-config
+, pulseaudio
+, udev
+, util-linux
+, xkeyboard_config
+, nix-update-script
+, clang
+, libclang
 }:
 
 let
@@ -37,7 +38,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-TrFo4zJKuMbTteqczrKJ8EXKuPcEsvATFIUYSGozTTA=";
   };
 
-  
+
   cargoHash = "sha256-dHyUTV5txSLWEDE7Blplz8CBvyuUmYNNr1kbifujHKk=";
 
   nativeBuildInputs = [
@@ -56,7 +57,11 @@ rustPlatform.buildRustPackage {
     pipewire
     pulseaudio
     udev
+    clang
+    libclang.lib
   ];
+
+  LIBCLANG_PATH = "${libclang.lib}/lib";
 
   dontUseJustBuild = true;
   dontUseJustCheck = true;

@@ -9,6 +9,8 @@
 , udev
 , nix-update-script
 , openssl
+, clang
+, libclang
 }:
 
 rustPlatform.buildRustPackage {
@@ -31,7 +33,11 @@ rustPlatform.buildRustPackage {
     pipewire
     udev
     openssl
+    clang
+    libclang.lib
   ];
+
+  LIBCLANG_PATH = "${libclang.lib}/lib";
 
   env.GEOCLUE_AGENT = "${lib.getLib geoclue2-with-demo-agent}/libexec/geoclue-2.0/demos/agent";
 

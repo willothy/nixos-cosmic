@@ -14,7 +14,8 @@
 , util-linux
 , xkeyboard_config
 , nix-update-script
-,
+, clang
+, libclang
 }:
 
 rustPlatform.buildRustPackage {
@@ -43,7 +44,11 @@ rustPlatform.buildRustPackage {
     pipewire
     pulseaudio
     udev
+    clang
+    libclang.lib
   ];
+
+  LIBCLANG_PATH = "${libclang.lib}/lib";
 
   dontUseJustBuild = true;
   dontUseJustCheck = true;
