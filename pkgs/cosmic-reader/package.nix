@@ -8,13 +8,13 @@
 
 rustPlatform.buildRustPackage {
   pname = "cosmic-reader";
-  version = "0-unstable-2025-09-19";
+  version = "0-unstable-2025-09-21";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-reader";
-    rev = "2f163a7f2fa1515273d2e3147e0f240ad20e9d39";
-    hash = "sha256-MyTNyQ0/l5NgTico19cf/Std0Orvjg1TXin/Pzjtxxc=";
+    rev = "a5b1b5c0583deacafde19de4ee936cdd126b25df";
+    hash = "sha256-yXY1t67ws2PvK7IubNHT0jp+xnfDAdyK5H7LCMGcMQI=";
   };
 
   
