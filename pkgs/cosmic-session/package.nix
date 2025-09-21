@@ -41,7 +41,7 @@ rustPlatform.buildRustPackage {
 
   justFlags = [
     "--set"
-    "rootdir"
+    "prefix"
     (placeholder "out")
     "--set"
     "cargo-target-dir"
@@ -49,6 +49,9 @@ rustPlatform.buildRustPackage {
     "--set"
     "cosmic_dconf_profile"
     "cosmic"
+    "--set"
+    "rootdir"
+    "${(placeholder "out")}/etc"
   ];
 
   env.XDP_COSMIC = lib.getExe xdg-desktop-portal-cosmic;
