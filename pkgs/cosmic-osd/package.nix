@@ -10,6 +10,7 @@
 , nix-update-script
 , libclang
 , clang
+, libinput
 }:
 
 rustPlatform.buildRustPackage {
@@ -33,6 +34,7 @@ rustPlatform.buildRustPackage {
     rustPlatform.bindgenHook
   ];
   buildInputs = [
+    libinput
     pulseaudio
     pipewire
     udev
