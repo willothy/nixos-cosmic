@@ -36,6 +36,7 @@ rustPlatform.buildRustPackage {
     just
     pkg-config
     util-linux
+    rustPlatform.bindgenHook
   ];
   buildInputs = [
     dbus

@@ -2,6 +2,7 @@
 , fetchFromGitHub
 , rustPlatform
 , geoclue2-with-demo-agent
+, glib
 , libinput
 , pkg-config
 , pulseaudio
@@ -26,10 +27,14 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-1YQ7eQ6L6OHvVihUUnZCDWXXtVOyaI1pFN7YD/OBcfo=";
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    pkg-config
+    rustPlatform.bindgenHook
+  ];
   buildInputs = [
     libinput
     pulseaudio
+    glib
     pipewire
     udev
     openssl

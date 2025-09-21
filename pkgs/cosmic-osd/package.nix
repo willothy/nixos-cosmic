@@ -30,6 +30,7 @@ rustPlatform.buildRustPackage {
     libcosmicAppHook
     pkg-config
     clang
+    rustPlatform.bindgenHook
   ];
   buildInputs = [
     pulseaudio
