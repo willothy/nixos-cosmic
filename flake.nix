@@ -82,6 +82,25 @@
         let
           lib = nixpkgs.lib;
           pkgs = nixpkgs.legacyPackages.${system};
+
+          # nix-update 1.13.0 takes the text after "got" in a fixed-output
+          # derivation hash error for the hash. Lix also prints "got path:
+          # /nix/store/..." lines, so 1.13.0 writes "path: /nix/store/..."
+          # into the package file and the next evaluation fails with
+          # "unknown hash algorithm 'path'". 1.13.1 accepts hash strings only.
+          nix-update =
+            if lib.versionAtLeast pkgs.nix-update.version "1.13.1" then
+              pkgs.nix-update
+            else
+              pkgs.nix-update.overrideAttrs (prev: {
+                version = "1.13.1";
+                src = pkgs.fetchFromGitHub {
+                  owner = "Mic92";
+                  repo = "nix-update";
+                  rev = "1.13.1";
+                  hash = "sha256-b/Ymvz4Un67j7UulzBJtmKrwcchpEE/si/QOn/m8m80=";
+                };
+              });
         in
         {
           update = pkgs.writeShellApplication {
@@ -93,7 +112,7 @@
                 if drv ? updateScript && (lib.isList drv.updateScript) && (lib.length drv.updateScript) > 0 then
                   lib.escapeShellArgs (
                     if (lib.match "nix-update|.*/nix-update" (lib.head drv.updateScript) != null) then
-                      [ (lib.getExe pkgs.nix-update) ]
+                      [ (lib.getExe nix-update) ]
                       ++ (lib.tail drv.updateScript)
                       ++ [
                         "--version"
